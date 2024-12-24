@@ -1,0 +1,222 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Button } from "../components/ui/button";
+import { Card } from "../components/ui/card";
+import '../styles/globals.css';
+import Banner from '../components/Banner.astro';
+import Carousel from '../components/Carousel.astro';
+---
+
+<Layout>
+	<!-- Hero Section -->
+	<Banner />
+
+	<!-- About Section -->
+	<section class="py-16 bg-[#FFF8E7]">
+		<div class="container mx-auto px-4">
+			<div class="flex justify-center mb-12">
+				<h2 class="text-3xl font-bold text-center">关于我们</h2>
+			</div>
+			<div class="flex justify-center mt-6 mb-12">
+				<div class="w-32 h-1 bg-blue-600 rounded-full"></div>
+			</div>
+			
+			<!-- 图片展示区 -->
+			<div class="space-y-4 md:space-y-8 mb-12">
+				<Carousel />
+			</div>
+		</div>
+	</section>
+
+	<section class="py-16 bg-[#FFF8E7]">
+		<div class="container mx-auto px-4">
+			<div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-12">
+				<h2 class="text-3xl font-bold text-center">国内外权威资质</h2>	
+			</div>
+
+			<div class="flex justify-center mt-6 mb-12">
+				<div class="w-32 h-1 bg-blue-600 rounded-full"></div>
+			</div>
+			
+			<!-- 图片展示区 -->
+			<div class="space-y-4 md:space-y-8 mb-12">
+				<img 
+					src="/public/image/beijing/幻灯片8.png" 
+					alt="资质图片" 
+					class="zoom-image w-full h-auto cursor-pointer"
+				>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="py-16 bg-[#FFF8E7]">
+		<div class="container mx-auto px-4">
+			<div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-12">
+				<h2 class="text-3xl font-bold text-center">顶尖非遗特效药</h2>	
+			</div>
+
+			<div class="flex justify-center mt-6 mb-12">
+				<div class="w-32 h-1 bg-blue-600 rounded-full"></div>
+			</div>
+			
+			<!-- 图片展示区 -->
+			<div class="space-y-4 md:space-y-8 mb-12">
+				<div class="overlay"></div>
+				<img 
+					src="/public/image/beijing/幻灯片9.png" 
+					alt="非遗特效药" 
+					class="zoom-image w-full h-auto"
+				/>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl font-bold text-center mb-12">联系我们</h2>
+			<div class="max-w-xl mx-auto">
+				<div class="space-y-4">
+					<div class="flex items-center">
+						<span class="text-lg">📍 地址：</span>
+						<span class="ml-2">杭州市西湖区xxx路xxx号</span>
+					</div>
+					<div class="flex items-center">
+						<span class="text-lg">📞 电话：</span>
+						<span class="ml-2">0571-xxxxxxxx</span>
+					</div>
+					<div class="flex items-center">
+						<span class="text-lg">📧 邮箱：</span>
+						<span class="ml-2">contact@company.com</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	:root {
+		--section-bg: #FFF8E7;
+	}
+
+	section {
+		position: relative;
+	}
+
+	section::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(to bottom, rgba(255, 248, 231, 0.02), rgba(255, 248, 231, 0.05));
+		pointer-events: none;
+	}
+
+	.zoom-image {
+		cursor: pointer;
+		transition: transform 0.3s ease;
+		max-width: 100%;
+		height: auto;
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	}
+	
+	.zoom-image.zoomed {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(1);
+		z-index: 1000;
+		max-height: 85vh;
+		max-width: 85vw;
+		width: auto;
+		height: auto;
+		object-fit: contain;
+		margin: 0;
+		padding: 20px;
+		box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+	}
+	
+	.overlay {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.95);
+		z-index: 999;
+		cursor: pointer;
+	}
+	
+	.overlay.active {
+		display: block;
+	}
+
+	/* 添加关闭按钮 */
+	.close-button {
+		position: fixed;
+		top: 20px;
+		right: 20px;
+		width: 40px;
+		height: 40px;
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: 50%;
+		display: none;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		z-index: 1001;
+		color: white;
+		font-size: 24px;
+		border: 2px solid white;
+		box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+	}
+
+	.close-button:hover {
+		background: rgba(255, 255, 255, 0.3);
+		transform: scale(1.1);
+		transition: all 0.2s ease;
+	}
+
+	.close-button.active {
+		display: flex;
+	}
+</style>
+
+<div class="close-button">×</div>
+
+<script>
+	const images = document.querySelectorAll('.zoom-image');
+	const overlay = document.querySelector('.overlay') as HTMLElement;
+	const closeButton = document.querySelector('.close-button') as HTMLElement;
+	
+	function closeZoom() {
+		document.querySelector('.zoomed')?.classList.remove('zoomed');
+		overlay?.classList.remove('active');
+		closeButton?.classList.remove('active');
+		document.body.style.overflow = 'auto'; // 恢复页面滚动
+	}
+
+	images.forEach(img => {
+		img.addEventListener('click', () => {
+			img.classList.toggle('zoomed');
+			overlay?.classList.toggle('active');
+			closeButton?.classList.toggle('active');
+			document.body.style.overflow = 'hidden'; // 禁止页面滚动
+		});
+	});
+	
+	overlay?.addEventListener('click', closeZoom);
+	closeButton?.addEventListener('click', closeZoom);
+
+	// 添加ESC键关闭功能
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') {
+			closeZoom();
+		}
+	});
+</script>

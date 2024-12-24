@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Button } from "../components/ui/button";
+import '../styles/globals.css';
+import Banner from '../components/Banner.astro';
+---
+<meta charset="UTF-8">
+<Banner />
+
+<Layout>
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="flex items-center mb-8">
+				<a href="/" class="inline-flex items-center text-blue-600 hover:text-blue-700">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+						<path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+					</svg>
+					返回首页
+				</a>
+			</div>
+
+			<h1 class="text-4xl font-bold text-center mb-4">权威资质</h1>
+			<div class="flex justify-center mb-12">
+				<div class="w-32 h-1 bg-blue-600 rounded-full"></div>
+			</div>
+
+			<div class="space-y-4 md:space-y-8">
+				<div class="relative h-[200px] sm:h-[300px] md:h-[500px] lg:h-[720px] bg-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-shadow group">
+					<img src="/public/image/beijing/资质1.png" alt="医疗资质1" class="w-full h-full object-contain md:object-cover" />
+					<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 md:p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform">
+						<h3 class="text-lg md:text-2xl font-bold mb-1 md:mb-2">医疗机构执业许可证</h3>
+						<p class="text-sm md:text-lg">具备合法的医疗机构执业资质</p>
+					</div>
+				</div>
+				<div class="relative h-[200px] sm:h-[300px] md:h-[500px] lg:h-[720px] bg-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-shadow group">
+					<img src="/public/image/beijing/资质2.png" alt="医疗资质2" class="w-full h-full object-contain md:object-cover" />
+					<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 md:p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform">
+						<h3 class="text-lg md:text-2xl font-bold mb-1 md:mb-2">专业技术资格证书</h3>
+						<p class="text-sm md:text-lg">医师团队具备专业的执业资格</p>
+					</div>
+				</div>
+				<div class="relative h-[200px] sm:h-[300px] md:h-[500px] lg:h-[720px] bg-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-shadow group">
+					<img src="/public/image/beijing/资质3.png" alt="医疗资质3" class="w-full h-full object-contain md:object-cover" />
+					<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 md:p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform">
+						<h3 class="text-lg md:text-2xl font-bold mb-1 md:mb-2">荣誉证书</h3>
+						<p class="text-sm md:text-lg">多年来获得的行业认可和荣誉表彰</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout> 
