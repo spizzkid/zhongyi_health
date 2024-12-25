@@ -2,52 +2,48 @@
 const images = [
   {
     src: "/image/beijing/幻灯片1.PNG",
-    title: "专业医师团队",
-    description: "拥有多年临床经验的中医专家团队"
+    title: "",
+    description: ""
   },
   {
     src: "/image/beijing/幻灯片2.PNG",
-    title: "现代化设备",
-    description: "配备先进的中医诊疗设备"
+    title: "",
+    description: ""
   },
   {
     src: "/image/beijing/幻灯片3.PNG",
-    title: "治疗环境",
-    description: "舒适优雅的诊疗环境"
+    title: "",
+    description: ""
   },
   {
     src: "/image/beijing/幻灯片4.PNG",
-    title: "康复指导",
-    description: "专业的康复训练和健康指导"
+    title: "",
+    description: ""
   },
   {
     src: "/image/beijing/幻灯片5.PNG",
-    title: "中医诊疗",
-    description: "结合传统中医理论与现代医学技术，为您提供全面的健康诊疗服务"
+    title: "",
+    description: ""
   },
   {
     src: "/image/beijing/幻灯片6.PNG",
-    title: "康复理疗",
-    description: "专业的康复训练和理疗服务，帮助您恢复健康"
+    title: "",
+    description: ""
   },
   {
     src: "/image/beijing/幻灯片7.PNG",
-    title: "健康咨询",
-    description: "提供专业的健康咨询和指导，为您定制个性化的健康方案"
+    title: "",
+    description: ""
   }
 ];
 ---
 
-<div class="relative h-[200px] sm:h-[300px] md:h-[500px] lg:h-[720px] bg-gray-200 rounded-xl overflow-hidden group">
+<div class="relative w-full max-w-[1280px] mx-auto aspect-[16/9] overflow-hidden group">
   <div class="carousel-container w-full h-full">
     <div class="carousel-slides flex transition-transform duration-300 ease-in-out">
       {images.map((image, index) => (
         <div class="carousel-slide w-full h-full flex-shrink-0" data-index={index}>
-          <img src={image.src} alt={image.title} class="zoom-image w-full h-full object-contain md:object-cover cursor-pointer" />
-          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 md:p-6 text-white">
-            <h3 class="text-lg md:text-2xl font-bold mb-1 md:mb-2">{image.title}</h3>
-            <p class="text-sm md:text-lg">{image.description}</p>
-          </div>
+          <img src={image.src} alt={image.title} class="zoom-image w-full h-full object-contain" />
         </div>
       ))}
     </div>
