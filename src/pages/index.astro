@@ -9,6 +9,12 @@ import Bottom from '../components/Bottom.astro';
 ---
 
 <Layout>
+	<!-- 添加全屏显示容器 -->
+	<div class="fullscreen-overlay" id="fullscreenOverlay">
+		<span class="close-button" id="fullscreenCloseButton">×</span>
+		<img id="fullscreenImage" src="" alt="Fullscreen Image">
+	</div>
+
 	<!-- Hero Section -->
 	<Banner />
 
@@ -78,6 +84,48 @@ import Bottom from '../components/Bottom.astro';
 </Layout>
 
 <style>
+	/* 全屏显示相关样式 */
+	.fullscreen-overlay {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.9);
+		z-index: 1000;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.fullscreen-overlay img {
+		max-width: 90vw;
+		max-height: 90vh;
+		object-fit: contain;
+	}
+
+	.fullscreen-overlay .close-button {
+		position: fixed;
+		top: 20px;
+		right: 20px;
+		width: 40px;
+		height: 40px;
+		background: rgba(255, 255, 255, 0.3);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		color: white;
+		font-size: 24px;
+		border: 2px solid white;
+		z-index: 1001;
+	}
+
+	.fullscreen-overlay .close-button:hover {
+		background: rgba(255, 255, 255, 0.5);
+	}
+
 	:root {
 		--section-bg: #FFF8E7;
 	}
@@ -171,33 +219,49 @@ import Bottom from '../components/Bottom.astro';
 <div class="close-button">×</div>
 
 <script>
-	const images = document.querySelectorAll('.zoom-image');
-	const overlay = document.querySelector('.overlay') as HTMLElement;
-	const closeButton = document.querySelector('.close-button') as HTMLElement;
-	
-	function closeZoom() {
-		document.querySelector('.zoomed')?.classList.remove('zoomed');
-		overlay?.classList.remove('active');
-		closeButton?.classList.remove('active');
-		document.body.style.overflow = 'auto'; // 恢复页面滚动
-	}
+	document.addEventListener('DOMContentLoaded', function() {
+		// ... 其他代码保持不变 ...
 
-	images.forEach(img => {
-		img.addEventListener('click', () => {
-			img.classList.toggle('zoomed');
-			overlay?.classList.toggle('active');
-			closeButton?.classList.toggle('active');
-			document.body.style.overflow = 'hidden'; // 禁止页面滚动
-		});
-	});
-	
-	overlay?.addEventListener('click', closeZoom);
-	closeButton?.addEventListener('click', closeZoom);
-
-	// 添加ESC键关闭功能
-	document.addEventListener('keydown', (e) => {
-		if (e.key === 'Escape') {
-			closeZoom();
+		// 图片放大功能
+		const images = document.querySelectorAll('.zoom-image');
+		const fullscreenOverlay = document.getElementById('fullscreenOverlay');
+		const fullscreenImage = document.getElementById('fullscreenImage');
+		const fullscreenCloseButton = document.getElementById('fullscreenCloseButton');
+		
+		function openFullscreen(imgElement) {
+			fullscreenImage.src = imgElement.src;
+			fullscreenOverlay.style.display = 'flex';
+			document.body.style.overflow = 'hidden';
 		}
+		
+		function closeFullscreen() {
+			fullscreenOverlay.style.display = 'none';
+			document.body.style.overflow = 'auto';
+		}
+
+		images.forEach(img => {
+			img.addEventListener('click', (e) => {
+				e.preventDefault();
+				e.stopPropagation();
+				openFullscreen(img);
+			});
+		});
+		
+		fullscreenOverlay.addEventListener('click', (e) => {
+			if (e.target === fullscreenOverlay) {
+				closeFullscreen();
+			}
+		});
+
+		fullscreenCloseButton.addEventListener('click', (e) => {
+			e.stopPropagation();
+			closeFullscreen();
+		});
+		
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				closeFullscreen();
+			}
+		});
 	});
 </script>

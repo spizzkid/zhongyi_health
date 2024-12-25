@@ -40,15 +40,17 @@ const images = [
 
 <div class="relative h-[200px] sm:h-[300px] md:h-[500px] lg:h-[720px] bg-gray-200 rounded-xl overflow-hidden group">
   <div class="carousel-container w-full h-full">
-    {images.map((image, index) => (
-      <div class="carousel-slide absolute w-full h-full opacity-0 transition-opacity duration-1000" data-index={index}>
-        <img src={image.src} alt={image.title} class="w-full h-full object-contain md:object-cover" />
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 md:p-6 text-white">
-          <h3 class="text-lg md:text-2xl font-bold mb-1 md:mb-2">{image.title}</h3>
-          <p class="text-sm md:text-lg">{image.description}</p>
+    <div class="carousel-slides flex transition-transform duration-300 ease-in-out">
+      {images.map((image, index) => (
+        <div class="carousel-slide w-full h-full flex-shrink-0" data-index={index}>
+          <img src={image.src} alt={image.title} class="zoom-image w-full h-full object-contain md:object-cover cursor-pointer" />
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 md:p-6 text-white">
+            <h3 class="text-lg md:text-2xl font-bold mb-1 md:mb-2">{image.title}</h3>
+            <p class="text-sm md:text-lg">{image.description}</p>
+          </div>
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
   
   <!-- 左右导航按钮 -->
@@ -77,62 +79,37 @@ const images = [
 
 <script>
   function setupCarousel() {
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.carousel-dot');
+    const container = document.querySelector('.carousel-container');
+    const slides = document.querySelector('.carousel-slides');
     const prevButton = document.querySelector('.carousel-prev');
     const nextButton = document.querySelector('.carousel-next');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const slideCount = document.querySelectorAll('.carousel-slide').length;
     let currentSlide = 0;
-    const slideCount = slides.length;
-    let intervalId: ReturnType<typeof setInterval>;
+    let autoplayInterval: ReturnType<typeof setInterval>;
 
-    function showSlide(index: number) {
-      slides.forEach((slide) => {
-        (slide as HTMLElement).style.opacity = '0';
-      });
-      dots.forEach((dot) => {
-        dot.classList.remove('bg-white');
-        dot.classList.add('bg-white/50');
-      });
-
-      (slides[index] as HTMLElement).style.opacity = '1';
-      dots[index].classList.remove('bg-white/50');
-      dots[index].classList.add('bg-white');
-      currentSlide = index;
+    function updateSlidePosition() {
+      if (slides) {
+        slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        // 更新指示器
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('bg-white', index === currentSlide);
+          dot.classList.toggle('bg-white/50', index !== currentSlide);
+        });
+      }
     }
 
     function nextSlide() {
-      showSlide((currentSlide + 1) % slideCount);
+      currentSlide = (currentSlide + 1) % slideCount;
+      updateSlidePosition();
     }
 
     function prevSlide() {
-      showSlide((currentSlide - 1 + slideCount) % slideCount);
+      currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+      updateSlidePosition();
     }
 
-    function startAutoPlay() {
-      intervalId = setInterval(nextSlide, 3000);
-    }
-
-    function stopAutoPlay() {
-      clearInterval(intervalId);
-    }
-
-    function resetAutoPlay() {
-      stopAutoPlay();
-      startAutoPlay();
-    }
-
-    // 初始化显示第一张
-    showSlide(0);
-
-    // 点击导航点切换
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        showSlide(index);
-        resetAutoPlay();
-      });
-    });
-
-    // 点击左右按钮切换
+    // 添加按钮事件监听器
     prevButton?.addEventListener('click', () => {
       prevSlide();
       resetAutoPlay();
@@ -143,12 +120,34 @@ const images = [
       resetAutoPlay();
     });
 
+    // 添加指示器点击事件
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateSlidePosition();
+        resetAutoPlay();
+      });
+    });
+
+    function startAutoPlay() {
+      autoplayInterval = setInterval(nextSlide, 3000);
+    }
+
+    function stopAutoPlay() {
+      clearInterval(autoplayInterval);
+    }
+
+    function resetAutoPlay() {
+      stopAutoPlay();
+      startAutoPlay();
+    }
+
     // 鼠标悬停时暂停自动播放
-    const container = document.querySelector('.carousel-container');
     container?.addEventListener('mouseenter', stopAutoPlay);
     container?.addEventListener('mouseleave', startAutoPlay);
 
-    // 开始自动播放
+    // 初始化第一个指示器为激活状态
+    updateSlidePosition();
     startAutoPlay();
   }
 
