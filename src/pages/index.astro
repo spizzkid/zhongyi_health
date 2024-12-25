@@ -5,6 +5,7 @@ import { Card } from "../components/ui/card";
 import '../styles/globals.css';
 import Banner from '../components/Banner.astro';
 import Carousel from '../components/Carousel.astro';
+import Bottom from '../components/Bottom.astro';
 ---
 
 <Layout>
@@ -73,27 +74,7 @@ import Carousel from '../components/Carousel.astro';
 	</section>
 
 	<!-- Contact Section -->
-	<section class="py-16 bg-gray-900 text-white">
-		<div class="container mx-auto px-4">
-			<h2 class="text-3xl font-bold text-center mb-12">联系我们</h2>
-			<div class="max-w-xl mx-auto">
-				<div class="space-y-4">
-					<div class="flex items-center">
-						<span class="text-lg">📍 地址：</span>
-						<span class="ml-2">杭州市西湖区xxx路xxx号</span>
-					</div>
-					<div class="flex items-center">
-						<span class="text-lg">📞 电话：</span>
-						<span class="ml-2">0571-xxxxxxxx</span>
-					</div>
-					<div class="flex items-center">
-						<span class="text-lg">📧 邮箱：</span>
-						<span class="ml-2">contact@company.com</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<Bottom />
 </Layout>
 
 <style>

@@ -1,7 +1,454 @@
 ---
-import Banner from "../components/Banner.astro";
+import Layout from '../layouts/Layout.astro';
+import '../styles/globals.css';
+import Bottom from '../components/Bottom.astro';
 ---
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>products | 产品</title>
-<Banner />
+
+<Layout title="产品展示 - 智慧中医">
+	<section class="py-16 bg-[#FFF8E7]">
+		<div class="container mx-auto px-4 max-w-4xl">
+			<div class="flex items-center mb-8">
+				<a href="/" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+						<path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+					</svg>
+					返回首页
+				</a>
+			</div>
+
+			<h1 class="text-4xl font-bold text-center mb-4">御福堂防疫香囊</h1>
+			<div class="flex justify-center mb-12">
+				<div class="w-32 h-1 bg-blue-600 rounded-full"></div>
+			</div>
+
+			<div class="space-y-8">
+				<!-- 产品卡片 -->
+				<div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-[800px] flex flex-col">
+					<div class="relative h-[300px] md:h-[400px] flex-shrink-0">
+						<img src="/image/products/防疫香囊.jpg" alt="防疫香囊" class="w-full h-full object-contain" />
+					</div>
+					<div class="p-8 overflow-y-auto flex-grow">
+						<h3 class="text-2xl font-bold mb-4">传统防疫香囊</h3>
+						<p class="text-gray-600 text-lg leading-relaxed">
+							中药香囊源自中医(衣冠疗法)自古民间就有戴个香草袋不怕五虫害香囊的主要配方有佩兰，藿香，白芷，桂枝，冰片等21味中草药。这些中药放在香囊里，香味散发可以在人体周围，形成高浓度的小环境，而中药成分通过呼吸道进入人体，芳香气味能够兴奋神经系统，刺激鼻黏膜，使鼻黏膜上的抗体，分泌型免疫球蛋白含量提高，不断刺激机体免疫系统，促进抗体生成。对多种致病毒素有强大的抑制作用。
+此配方专用于，预防各种流行型感冒，病毒，鼻炎等等，以避除秽恶之气，避瘟，驱虫，杀菌，清脑醒神，助眠，安抚身心，净化空气，防病养生。
+药性可从皮肤毛窍汗孔而入腠理，通过经络辅送直达脏腑，起到调整机体阴阳平衡，扶正气抵外邪的作用！
+把香囊佩戴在胸前，散发浓郁的药物香味，在口鼻周围形成高浓度的小环境，香囊散发的气味对病毒，细菌有直接抑制作用，并能改变口，鼻粘膜酸碱环境，并显著提高人体鼻黏膜SlgA的含量，这就有效提高了上呼吸道抵御病原微生物入侵的能力，从而达到预防上呼吸道感染的目的。
+						</p>
+						<!-- <div class="mt-6 space-y-2">
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">规格：</span>
+								<span>单个装/礼盒装</span>
+							</div>
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">适用人群：</span>
+								<span>成人、儿童均可使用</span>
+							</div>
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">使用方法：</span>
+								<span>随身佩戴或放置于床头、办公桌等处</span>
+							</div>
+						</div> -->
+					</div>
+				</div>
+
+				<div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-[800px] flex flex-col">
+					<div class="relative h-[300px] md:h-[400px] flex-shrink-0">
+						<img src="/image/products/香囊包.jpg" alt="防疫香囊礼盒" class="w-full h-full object-contain" />
+					</div>
+					<div class="p-8 overflow-y-auto flex-grow">
+						<h3 class="text-2xl font-bold mb-4">御福堂防疫香囊</h3>
+						<p class="text-gray-600 text-lg leading-relaxed">
+							<span class="font-bold text-red-600">本套产品由御福堂多位国医大师、院士临床及国家援外专家联合研发推出，此防疫香囊可扶正气、提免疫、防瘟疫，适合复工、开学、出入公共服务场合的时候佩戴。</span>
+                            <br>
+							御福堂防疫香囊沿袭古人使用香囊的方法，用线绳、玉石、布袋、等，配以现代生物科技手段相结合，使用环保塑料盒和生命之花能量贴，更符合现代人方便使用。
+						</p>
+						<!-- <div class="mt-6 space-y-2">
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">包装：</span>
+								<span>高档礼盒装</span>
+							</div>
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">内含：</span>
+								<span>4个装/6个装可选</span>
+							</div>
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">保质期：</span>
+								<span>12个月</span>
+							</div>
+						</div> -->
+					</div>
+				</div>
+
+				<div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-[800px] flex flex-col">
+					<div class="relative h-[300px] md:h-[400px] flex-shrink-0">
+						<img src="/image/products/玉石.jpg" alt="定制香囊" class="w-full h-full object-contain" />
+					</div>
+					<div class="p-8 overflow-y-auto flex-grow">
+						<h3 class="text-2xl font-bold mb-4"><span class="text-red-600">线绳、玉石</span></h3>
+						<p class="text-gray-600 text-lg leading-relaxed">
+							俗话说的好"人养玉，玉养人"，戴玉有益于健康，有其客观依据。明代伟大的医学家李时珍在其传世之作《本草纲目》中记载，玉石具有"除中热、解烦闷、润心肺、助声喉、滋毛发、养五脏、疏血脉、明耳目……"等功效。
+						</p>
+						<!-- <div class="mt-6 space-y-2">
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">定制选项：</span>
+								<span>款式、颜色、刺绣图案可选</span>
+							</div>
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">起订量：</span>
+								<span>10个起订</span>
+							</div>
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">定制周期：</span>
+								<span>7-15天</span>
+							</div>
+						</div> -->
+					</div>
+				</div>
+
+				<div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-[800px] flex flex-col">
+					<div class="relative h-[300px] md:h-[400px] flex-shrink-0">
+						<img src="/image/products/青花麻布袋.jpg" alt="青花麻布袋" class="w-full h-full object-contain" />
+					</div>
+					<div class="p-8 overflow-y-auto flex-grow">
+						<h3 class="text-2xl font-bold mb-4"><span class="text-red-600">青花麻布袋</span></h3>
+						<p class="text-gray-600 text-lg leading-relaxed">
+                            古色古香的青花麻布袋，配上御福堂防疫香囊，随身携带、居家摆放、车内挂饰等，既大方又好看，关键是麻布的透气性，更能让御福堂防疫香囊充分发挥作用。
+							<ul class="list-disc ml-6 mt-4 space-y-2">
+								<li>增强能量场</li>
+								<li>提升生命力</li>
+								<li>促进身心平衡</li>
+								<li>净化环境能量</li>
+							</ul>
+						</p>
+						<div class="mt-6 space-y-2">
+							<!-- <div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">材质：</span>
+								<span>特殊能量材料</span>
+							</div>
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">使用寿命：</span>
+								<span>长期有效</span>
+							</div>
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">使用方式：</span>
+								<span>贴于香囊或随身物品上</span>
+							</div> -->
+						</div>
+					</div>
+				</div>
+
+				<div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-[800px] flex flex-col relative">
+					<div class="relative h-[300px] md:h-[400px] flex-shrink-0">
+						<div class="carousel-container relative w-full h-full">
+							<div class="carousel-slides flex transition-transform duration-300 ease-in-out w-full h-full">
+								<img src="/image/products/能量贴.jpg" alt="能量贴" class="w-full h-full object-contain" />
+								<img src="/image/products/能量贴2.jpg" alt="能量贴2" class="w-full h-full object-contain" />
+								<img src="/image/products/公交卡.jpg" alt="公交卡" class="w-full h-full object-contain" />
+								<img src="/image/products/学生证.jpg" alt="学生证" class="w-full h-full object-contain" />
+								<img src="/image/products/工作证.jpg" alt="工作证" class="w-full h-full object-contain" />
+                                <img src="/image/products/example.jpg" alt="example" class="w-full h-full object-contain" />
+								<img src="/image/products/example2.jpg" alt="example2" class="w-full h-full object-contain" />
+                        
+                            </div>
+							
+							<!-- 左右切换按钮 -->
+							<button class="carousel-btn prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-75 transition-all">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+								</svg>
+							</button>
+							<button class="carousel-btn next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-75 transition-all">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+								</svg>
+							</button>
+
+							<!-- 指示器 -->
+							<div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+								<button class="carousel-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+								<button class="carousel-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+								<button class="carousel-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+								<button class="carousel-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+								<button class="carousel-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+								<button class="carousel-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+								<button class="carousel-dot w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+						
+                            </div>
+						</div>
+					</div>
+					<div class="p-8 overflow-y-auto flex-grow">
+						<h3 class="text-2xl font-bold mb-4"><span class="text-red-600">多功能环保盒、生命之花能量贴</span></h3>
+						<p class="text-gray-600 text-lg leading-relaxed">
+							定制三色可选，黄色、淡黄、蓝色。
+
+ 黄色和淡黄是暖色，它有大自然、阳光、春天的涵义，给人轻快、透明、辉煌和活力的色彩印象，通常被认为是一个快乐和有希望的色彩。蓝色是博大的色彩，是永恒的象征。纯净的蓝色给人一种美丽、文静、理智、安详与洁净。
+ 生命之花是非常古老具有无限能量的图腾，完美比例象征着宇宙最原初的形状与振动（频率），同时也是神圣几何的一种，是创造的蓝图，是构成生命与宇宙的符号。
+							<ul class="list-disc ml-6 mt-4 space-y-2">
+								<li>密封性好，保持香料持久</li>
+								<li>环保无毒，安全健康</li>
+								<li>便携轻巧，随身携带方便</li>
+								<li>透明设计，内容物清晰可见</li>
+							</ul>
+						</p>
+						<!-- <div class="mt-6 space-y-2">
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">材质：</span>
+								<span>环保级塑料</span>
+							</div>
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">规格：</span>
+								<span>标准便携尺寸</span>
+							</div>
+							<div class="flex items-center text-gray-700">
+								<span class="font-semibold mr-2">特点：</span>
+								<span>密封防潮、便携耐用</span>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 产品参数表格 -->
+	<section class="py-12 bg-white">
+		<div class="container mx-auto px-4 max-w-4xl">
+			<h2 class="text-3xl font-bold text-center mb-8">产品参数</h2>
+			<div class="overflow-hidden rounded-lg border border-gray-200">
+				<table class="w-full">
+					<tbody>
+						<tr class="bg-gray-50">
+							<td class="px-6 py-4 text-gray-700 font-medium w-1/4">品名</td>
+							<td class="px-6 py-4 text-gray-900">御福堂防疫香囊</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 text-gray-700 font-medium">净含量/规格</td>
+							<td class="px-6 py-4 text-gray-900">25克（5克/袋×5袋）</td>
+						</tr>
+						<tr class="bg-gray-50">
+							<td class="px-6 py-4 text-gray-700 font-medium">保质期</td>
+							<td class="px-6 py-4 text-gray-900">24个月</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 text-gray-700 font-medium">贮存条件</td>
+							<td class="px-6 py-4 text-gray-900">密封避光，置于阴凉干燥处</td>
+						</tr>
+						<tr class="bg-gray-50">
+							<td class="px-6 py-4 text-gray-700 font-medium">生产企业</td>
+							<td class="px-6 py-4 text-gray-900">御福堂（武汉）医疗管理有限公司</td>
+						</tr>
+                        <tr>
+							<td class="px-6 py-4 text-red-500 font-bold">咨询洽谈</td>
+							<td class="px-6 py-4 text-red-500 font-bold">400-862-6766</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+    <div class="container mx-auto px-4 max-w-4xl">
+        <img src="/image/wuhan/logo.jpg" alt="logo" class="w-full h-full object-contain mb-8">
+    </div>
+
+    <!-- 公司环境展示 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-8">公司简介</h2>
+            <div class="relative h-[400px] md:h-[500px]">
+                <div class="carousel-container-env relative w-full h-full rounded-lg overflow-hidden">
+                    <div class="carousel-slides-env flex transition-transform duration-300 ease-in-out w-full h-full">
+                        <img src="/image/wuhan/1.jpg" alt="公司环境1" class="w-full h-full object-cover" />
+                        <img src="/image/wuhan/2.jpg" alt="公司环境2" class="w-full h-full object-cover" />
+                        <img src="/image/wuhan/3.jpg" alt="公司环境3" class="w-full h-full object-cover" />
+                        <img src="/image/wuhan/4.jpg" alt="公司环境4" class="w-full h-full object-cover" />
+                        <img src="/image/wuhan/5.jpg" alt="公司环境5" class="w-full h-full object-cover" />
+                        <img src="/image/wuhan/6.jpg" alt="公司环境6" class="w-full h-full object-cover" />
+                    </div>
+                    
+                    <!-- 左右切换按钮 -->
+                    <button class="carousel-btn-env prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-75 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button class="carousel-btn-env next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-75 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+
+                    <!-- 指示器 -->
+                    <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                        <button class="carousel-dot-env w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+                        <button class="carousel-dot-env w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+                        <button class="carousel-dot-env w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+                        <button class="carousel-dot-env w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+                        <button class="carousel-dot-env w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+                        <button class="carousel-dot-env w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<Bottom />
+</Layout>
+
+<style>
+	.bg-white {
+		background-color: rgba(255, 255, 255, 0.9);
+	}
+
+	.carousel-container {
+		overflow: hidden;
+	}
+
+	.carousel-slides {
+		display: flex;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.carousel-slides img {
+		flex-shrink: 0;
+		width: 100%;
+	}
+
+	.carousel-dot.active {
+		background-opacity: 1;
+	}
+
+	.carousel-container-env {
+		overflow: hidden;
+	}
+
+	.carousel-slides-env {
+		display: flex;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.carousel-slides-env img {
+		flex-shrink: 0;
+		width: 100%;
+	}
+
+	.carousel-dot-env.active {
+		background-opacity: 1;
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const container = document.querySelector('.carousel-container');
+		const slides = document.querySelector('.carousel-slides');
+		const prevBtn = document.querySelector('.carousel-btn.prev');
+		const nextBtn = document.querySelector('.carousel-btn.next');
+		const dots = document.querySelectorAll('.carousel-dot');
+		const slideCount = document.querySelectorAll('.carousel-slides img').length;
+		let currentSlide = 0;
+
+		function updateSlidePosition() {
+			slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+			// 更新指示器
+			dots.forEach((dot, index) => {
+				dot.classList.toggle('active', index === currentSlide);
+				dot.style.backgroundColor = index === currentSlide ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.5)';
+			});
+		}
+
+		function nextSlide() {
+			currentSlide = (currentSlide + 1) % slideCount;
+			updateSlidePosition();
+		}
+
+		function prevSlide() {
+			currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+			updateSlidePosition();
+		}
+
+		// 添加按钮事件监听器
+		prevBtn.addEventListener('click', prevSlide);
+		nextBtn.addEventListener('click', nextSlide);
+
+		// 添加指示器点击事件
+		dots.forEach((dot, index) => {
+			dot.addEventListener('click', () => {
+				currentSlide = index;
+				updateSlidePosition();
+			});
+		});
+
+		// 自动播放
+		let autoplayInterval = setInterval(nextSlide, 3000);
+
+		// 鼠标悬停时暂停自动播放
+		container.addEventListener('mouseenter', () => {
+			clearInterval(autoplayInterval);
+		});
+
+		// 鼠标离开时恢复自动播放
+		container.addEventListener('mouseleave', () => {
+			autoplayInterval = setInterval(nextSlide, 3000);
+		});
+
+		// 初始化第一个指示器为激活状态
+		updateSlidePosition();
+
+		// 环境展示轮播
+		const containerEnv = document.querySelector('.carousel-container-env');
+		const slidesEnv = document.querySelector('.carousel-slides-env');
+		const prevBtnEnv = document.querySelector('.carousel-btn-env.prev');
+		const nextBtnEnv = document.querySelector('.carousel-btn-env.next');
+		const dotsEnv = document.querySelectorAll('.carousel-dot-env');
+		const slideCountEnv = document.querySelectorAll('.carousel-slides-env img').length;
+		let currentSlideEnv = 0;
+
+		function updateSlidePositionEnv() {
+			slidesEnv.style.transform = `translateX(-${currentSlideEnv * 100}%)`;
+			// 更新指示器
+			dotsEnv.forEach((dot, index) => {
+				dot.classList.toggle('active', index === currentSlideEnv);
+				dot.style.backgroundColor = index === currentSlideEnv ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.5)';
+			});
+		}
+
+		function nextSlideEnv() {
+			currentSlideEnv = (currentSlideEnv + 1) % slideCountEnv;
+			updateSlidePositionEnv();
+		}
+
+		function prevSlideEnv() {
+			currentSlideEnv = (currentSlideEnv - 1 + slideCountEnv) % slideCountEnv;
+			updateSlidePositionEnv();
+		}
+
+		// 添加按钮事件监听器
+		prevBtnEnv.addEventListener('click', prevSlideEnv);
+		nextBtnEnv.addEventListener('click', nextSlideEnv);
+
+		// 添加指示器点击事件
+		dotsEnv.forEach((dot, index) => {
+			dot.addEventListener('click', () => {
+				currentSlideEnv = index;
+				updateSlidePositionEnv();
+			});
+		});
+
+		// 自动播放
+		let autoplayIntervalEnv = setInterval(nextSlideEnv, 3000);
+
+		// 鼠标悬停时暂停自动播放
+		containerEnv.addEventListener('mouseenter', () => {
+			clearInterval(autoplayIntervalEnv);
+		});
+
+		// 鼠标离开时恢复自动播放
+		containerEnv.addEventListener('mouseleave', () => {
+			autoplayIntervalEnv = setInterval(nextSlideEnv, 3000);
+		});
+
+		// 初始化第一个指示器为激活状态
+		updateSlidePositionEnv();
+	});
+</script>
